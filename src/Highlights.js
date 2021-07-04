@@ -1,10 +1,10 @@
 import Moment from "react-moment";
-import Webpage from "./Webpage";
+//import Webpage from "./Webpage";
 import { Link } from "react-router-dom";
 
 const Highlights = (props) => {
-  const Webpage1 = Webpage.highlights;
-  console.log(Webpage1);
+ // const Webpage1 = Webpage.highlights;
+ // console.log(Webpage1);
   const urlRegex = /(https?:\/\/[^ ]*)/;
 
   const articles = (props, counter) => {
@@ -21,12 +21,12 @@ const Highlights = (props) => {
           {<Moment fromNow>{props?.highlights?.[counter]?.date}</Moment>}
         </h4>
         <span style={{ display: "inline-block", width: "150px" }}></span>
-        <div >
+        <div style={{border: "1px solid #e3dcdc", justifyContent:"start-end" }}>
                 <iframe
                     src={props?.highlights?.[counter]?.embed?.match(urlRegex)[1]}
                     frameBorder="0"
-                    width="300"
-                    height="200"
+                    width="auto"
+                    height="auto"
                     alt=""
                     allow="autoplay; fullscreen"
                     title="This is a unique title"
@@ -41,15 +41,15 @@ const Highlights = (props) => {
   return (
     <>
       <div>
-        <h2>Football highlights</h2>
+        <h2>Soccer highlights</h2>
       </div>
-      <div style={{ border: "1px solid #e3dcdc", borderRadius:"10px" }}>
+      <div style={{ border: "1px solid #e3dcdc", borderRadius:"10px", alignContent:"space-between", justifyContent:"start-end", flexFlow: "row wrap", display:"flex"}}>
         <ul>
           {articles(props, 0)}
           {articles(props, 1)}
           {articles(props, 2)}
         </ul>
-        <div><span style={{ display: "inline-block", width: "50px" }}></span>
+        <div style={{ border: "1px solid #e3dcdc", color:"blue"}}>
           <Link to={{pathname: "/headlines/FullHighlightsList/", data: { props } }}>
            <h4>View Full Highlights list</h4>
           </Link>

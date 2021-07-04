@@ -3,6 +3,7 @@ import WebUrl from "./WebUrl";
 import ApiCall from "./ApiCall";
 import Highlights from "./Highlights";
 import News from "./News";
+import SideBar from "./SideBar";
 
 // let isFirstLoad = true;
 function Headlines() {
@@ -10,6 +11,7 @@ function Headlines() {
   const [news, setNews] = React.useState([]);
   const [isFirstLoad, setFirstLoad] = React.useState(true);
   const [isFirstLoadNews, setFirstLoadNews] = React.useState(true);
+  const [newsUrl,setnewsUrl] = React.useState(WebUrl.news);
 
   const handleApiCall = (data) => {
     setFirstLoad(false);
@@ -23,39 +25,30 @@ function Headlines() {
     setNews(data);
   };
 
+  const handleTop =()=> {
+    setnewsUrl(WebUrl.news);
+    console.log("top");
+    setFirstLoadNews(true);
+  }
+
+  const handleFave =()=> {
+    setnewsUrl(WebUrl.news2);
+    console.log("fave");
+    setFirstLoadNews(true);
+  }
+ // console.log(newsUrl);
+
   return (
     <>
-    {/*   <h1>Daily Round Up</h1> */}
-      {/* <table>
-        <thead>
-          <tr>
-            <th>Company Name</th>
-            <th>Price </th>
-            <th>Change</th>
-          </tr>
-        </thead>
-        <tbody> */}
-       
-        <div style={{flexFlow: "row wrap", display:"flex" ,alignItems:"stretch", alignContent:"space-between", justifyContent:"center"}}>
-        <div style={{ border:"1px solid #e3dcdc", width:"10%"}}>
-          <div style={{paddingTop: "30px", border:"1px solid #e3dcdc"}}>Top Stories</div>
-          <div style={{paddingTop: "50px", border:"1px solid #e3dcdc"}}>
-          <div>Manchester United</div>
-          </div>
-          
-        </div>
-        <div style={{ border:"1px solid #e3dcdc", width:"80%"}}>
-        <ApiCall url={WebUrl.news} handleApiCall={handleApiCallNews} isFirstLoad={isFirstLoadNews}/>
-        <News news={news}/>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-         <ApiCall url={WebUrl.highlights} handleApiCall={handleApiCall} isFirstLoad={isFirstLoad}/>
-  <Highlights highlights={highlights}/>
-       {/*  </tbody>
-      </table> */}
-      </div>
+        <div style={{flexFlow: "row wrap", display:"flex" ,alignItems:"stretch"}}>
+            <SideBar handleTop={handleTop} handleFave={handleFave}/>
+            <div style={{ border:"1px solid #e3dcdc", width:"80%"}}>
+            <ApiCall url={WebUrl.highlights} handleApiCall={handleApiCall} isFirstLoad={isFirstLoad}/>
+            <ApiCall url={newsUrl} handleApiCall={handleApiCallNews} isFirstLoad={isFirstLoadNews}/>
+            <News news={news}/>
+            <span style={{ display: "inline-block", width: "200px" }}></span>
+            <Highlights highlights={highlights}/>
+            </div>
       </div>
     </>
   );

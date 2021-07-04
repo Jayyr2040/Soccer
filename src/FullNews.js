@@ -6,32 +6,38 @@ function FullNews(props) {
 
     let list = (props.location.data?.props.news.articles).map((item,index) => {
         return (
-                    <li key={index}>
-                    <div style={{ flexDirection: "row", display: "flex", height: "wrap" }}>
-                    <a href={item?.url}><h4> News: {item?.title}</h4></a>
-                    <span style={{ display: "inline-block", width: "50px" }}></span>
-                    <h4> Source: {item?.source?.name}</h4>
-                    <span style={{ display: "inline-block", width: "50px" }}></span>
-                    <h4>
-                    Published:{" "}
+                    <div style={{display: "flex",flexWrap: "wrap",flexDirection: "row", borderRadius:"10px",border: "1px solid #e3dcdc", width: "48%", height: "150px", marginBottom: "1rem", marginRight: "1em"}}>
+                    <div style={{width:"69%",marginTop: "10px"}}>
+                    <a href={item?.url}><span> News: {item?.title}</span></a>
+                    <span style={{ display: "block", marginBottom: "50px" }}></span>
+                    <p style={{color:"grey", fontSize :"12px"}}> 
+                    Source: {item?.source?.name}
+                    <span style={{ display: "inline-block", width: "10px" }}></span>
+                    .
+                    <span style={{ display: "inline-block", width: "5px" }}></span>
+                     Published:
+                     <span style={{ display: "inline-block", width: "5px" }}></span>
                     {<Moment fromNow>{item?.publishedAt}</Moment>}
-                    </h4>
-                    <span style={{ display: "inline-block", width: "100px" }}></span>
-                    <div >
-                    <img src={item?.image} alt="" width="200px" height="auto"/>
+                    </p>
+                    </div>
+                    <div style={{border: "1px solid #e3dcdc",width:"30%" }}>
+                    <img src={item?.image} alt=""  width="100%" height="100%" style={{borderRadius:"10px"}}/>
                     </div>
                     </div>
-                    </li>   
+  
         )
       })
 
   return (
   <>
-      <h1 className="justify-content-center">Full News Coverage</h1> 
+      <h3>Full News Coverage</h3> 
       <hr></hr>
-      <ul>
+      {/* <ul>
             {list}
-      </ul>
+      </ul> */}
+      <div style={{display: "flex", flexWrap: "wrap", flexDirection: "row", height: 'calc(200px * 10 + 10rem)', alignContent: "flex-start"}}>
+          {list}
+      </div>
 
   </>
   );

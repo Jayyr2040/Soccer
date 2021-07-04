@@ -7,6 +7,7 @@ function FullHighlightsList(props) {
 
     const handleChange =(src) => {
         setHighlightSrc(src);
+        window.scrollTo(0, 0)
     }
 
     let list = (props.location.data?.props.highlights).map((item,index) => {
@@ -26,24 +27,28 @@ function FullHighlightsList(props) {
 
   return (
   <>
-  <h1 className="justify-content-center">Viewer</h1>
+  <div>
       <div>
-      <div >
-                <iframe
-                    src={highlightSrc?.match(urlRegex)[1]}
-                    frameBorder="0"
-                    width="560"
-                    height="650"
-                    alt=""
-                    allow="autoplay; fullscreen"
-                    title="This is a unique title"
-                ></iframe>
-      </div>   
-      <hr></hr>
-      <h1 className="justify-content-center">Full Highlights List</h1> 
-      <div style={{flexFlow: "row wrap", display:"flex" ,alignItems:"stretch", alignContent:"space-between", justifyContent:"center"}}>
-            {list}
-          </div>
+            <div style={{textAlign:"center", display:"flex" , flexFlow: "row wrap",justifyContent: "center"}}>
+            <div>
+                        <h2>Viewer</h2>
+                        <iframe
+                            src={highlightSrc?.match(urlRegex)[1]}
+                            frameBorder="0"
+                            width="500"
+                            height="500"
+                            alt=""
+                            allow="autoplay; fullscreen"
+                            title="This is a unique title"
+                        ></iframe>
+            </div>
+            </div>   
+            <hr></hr>
+            <h2 style={{textAlign:"center"}}>Full Highlights List</h2> 
+            <div style={{flexFlow: "row wrap", display:"flex" ,alignItems:"stretch", alignContent:"space-between", justifyContent:"center"}}>
+                    {list}
+            </div>
+    </div>
     </div>
   </>
   );

@@ -15,19 +15,29 @@ code {
 .App {
   font-family: sans-serif;
   text-align: center;
+  
 }
 
 .nav {
   display: flex;
   align-items: center;
   width: 100vw;
-  height: 50px;
+  height: 60px;
   padding: 0 20px;
-  background: #6532cb;
+  /* background: #6532cb; */
+  border : 30px solid transparent; /*g*/
+  /* border-radius: 10px; */
+  box-sizing: border-box;/*g*/
+  box-shadow: 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%), 0px 2px 4px -1px rgb(0 0 0 / 20%);/*g*/
+ 
+  line-height: 27px;/*g*/
+  font-family: Roboto, RobotoDraft, Arial, sans-serif;/*g*/
 }
 
+
 .nav > * {
-  padding-right: 20px;
+  padding-right: 30px;
+  
 }
 
 .nav .nav-logo {
@@ -38,7 +48,7 @@ code {
 
 .nav a {
   text-decoration: none;
-  color: white;
+  color:black;
   font-weight: bold;
 }
 
@@ -60,11 +70,29 @@ td {
   border-top: 1px solid black;
 }
 
-.increaseChange {
-  color: green;
+a {
+  text-decoration: none;
+  color: inherit
 }
 
-.decreaseChange {
-  color: red;
+a:hover {
+  text-decoration: underline;
+}
+
+a.titleLink:hover {
+  text-decoration: none;
+}
+
+.sidebar:hover {
+  color:blue
+
+}
+
+div:focus {
+  background-color:lightblue
+}
+
+.imga {
+  width: 30%;
 }
 
