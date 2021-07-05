@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './Header';
 import Main from './Main';
+import Form from './Form';
+//export const DataContext = React.createContext();
 
 function App() {
+
+  const [queryStr,setQueryStr] = useState("");
+  const handleQuery = (query) => {
+    setQueryStr(query);
+  }
+
   return (
     <div>
+        <div className="nav">
         <Header/>
-        <Main/>
+        <Form handleQuery={handleQuery}/>
+       </div>
+       {/* <DataContext.Provider value={queryStr}> */}
+        <Main queryStr={queryStr}/>
+       {/* </DataContext.Provider> */}
     </div>
   );
 }

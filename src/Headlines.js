@@ -4,9 +4,14 @@ import ApiCall from "./ApiCall";
 import Highlights from "./Highlights";
 import News from "./News";
 import SideBar from "./SideBar";
+//import { DataContext } from './App';
+
 
 // let isFirstLoad = true;
-function Headlines() {
+function Headlines(props) {
+  //const dataContext = React.useContext(DataContext);
+ // console.log("Headlines - query",dataContext.queryStr);
+// console.log("Headlines - query",props.data);
   const [highlights, setHighlights] = React.useState([]);
   const [news, setNews] = React.useState([]);
   const [isFirstLoad, setFirstLoad] = React.useState(true);
@@ -38,13 +43,29 @@ function Headlines() {
   }
  // console.log(newsUrl);
 
+ //if (dataContext.queryStr === "") {console.log("undefined query string")}
+ //else {
+   
+ //console.log("Headlines - query", dataContext.queryStr)
+//setFirstLoadNews(true);
+//setnewsUrl(dataContext.queryStr);
+ //}
+
+// if (props.data === "") {console.log("undefined query string")}
+// else {
+//   console.log("Headlines - query", props.data);
+//   setnewsUrl(props.data);
+//setFirstLoadNews(true);
+// 
+// }
+
   return (
     <>
         <div style={{flexFlow: "row wrap", display:"flex" ,alignItems:"stretch"}}>
             <SideBar handleTop={handleTop} handleFave={handleFave}/>
             <div style={{ border:"1px solid #e3dcdc", width:"80%"}}>
             <ApiCall url={WebUrl.highlights} handleApiCall={handleApiCall} isFirstLoad={isFirstLoad}/>
-            <ApiCall url={newsUrl} handleApiCall={handleApiCallNews} isFirstLoad={isFirstLoadNews}/>
+            <ApiCall url={props.data === ""? newsUrl:props.data} handleApiCall={handleApiCallNews} isFirstLoad={isFirstLoadNews}/>
             <News news={news}/>
             <span style={{ display: "inline-block", width: "200px" }}></span>
             <Highlights highlights={highlights}/>
