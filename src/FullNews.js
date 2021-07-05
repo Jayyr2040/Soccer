@@ -2,11 +2,12 @@ import React from 'react';
 import Moment from 'react-moment';
 
 function FullNews(props) {
-    console.log("Full News Coverage",props.location.data?.props.news)
+    console.log("Full News Coverage",props.location.data?.props.news);
+    window.scrollTo(0, 0)
 
     let list = (props.location.data?.props.news.articles).map((item,index) => {
         return (
-                    <div style={{display: "flex",flexWrap: "wrap",flexDirection: "row", borderRadius:"10px",border: "1px solid #e3dcdc", width: "48%", height: "150px", marginBottom: "1rem", marginRight: "1em"}}>
+                    <div key={index} style={{display: "flex",flexWrap: "wrap",flexDirection: "row", borderRadius:"10px",border: "1px solid #e3dcdc", width: "48%", height: "150px", marginBottom: "1rem", marginRight: "1em"}}>
                     <div style={{width:"69%",marginTop: "10px"}}>
                     <a href={item?.url}><span> News: {item?.title}</span></a>
                     <span style={{ display: "block", marginBottom: "50px" }}></span>

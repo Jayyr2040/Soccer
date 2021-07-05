@@ -19,6 +19,7 @@ const Form = (props) => {
         const newstrAr =  WebUrl.news3 + strAr.join('+');
         console.log(newstrAr)
         props.handleQuery(newstrAr);
+        props.handleQuery("");
     }
 
 return (

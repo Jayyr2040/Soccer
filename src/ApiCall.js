@@ -1,7 +1,7 @@
 const ApiCall = (props) => {
     console.log(props.url);
     
-    if (props.isFirstLoad) {
+    if (props.isFirstLoad & props.url !== "") {
     const makeAPICall = async () => {
         const response = await fetch(props.url);
         if (!response.ok) {
@@ -15,6 +15,7 @@ const ApiCall = (props) => {
         console.log("There has been a problem with your fetch operation: ",e.message);
       });
     }
+    // else { props.handleApiCall("")}
 
     return (
         <>

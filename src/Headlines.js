@@ -14,8 +14,10 @@ function Headlines(props) {
 // console.log("Headlines - query",props.data);
   const [highlights, setHighlights] = React.useState([]);
   const [news, setNews] = React.useState([]);
+ // const [search, setSearch] = React.useState([]);
   const [isFirstLoad, setFirstLoad] = React.useState(true);
   const [isFirstLoadNews, setFirstLoadNews] = React.useState(true);
+ // const [isFirstLoadSearch, setFirstLoadSearch] = React.useState(true);
   const [newsUrl,setnewsUrl] = React.useState(WebUrl.news);
 
   const handleApiCall = (data) => {
@@ -30,6 +32,12 @@ function Headlines(props) {
     setNews(data);
   };
 
+  /* const handleApiCallSearch = (data) => {
+    setFirstLoadSearch(false);
+    console.log("First Load Search - ", isFirstLoadSearch);
+    setSearch(data);
+  }; */
+
   const handleTop =()=> {
     setnewsUrl(WebUrl.news);
     console.log("top");
@@ -41,6 +49,14 @@ function Headlines(props) {
     console.log("fave");
     setFirstLoadNews(true);
   }
+
+  const handleManC =()=> {
+    setnewsUrl(WebUrl.news4);
+    console.log("ManC");
+    setFirstLoadNews(true);
+  }
+
+
  // console.log(newsUrl);
 
  //if (dataContext.queryStr === "") {console.log("undefined query string")}
@@ -62,12 +78,14 @@ function Headlines(props) {
   return (
     <>
         <div style={{flexFlow: "row wrap", display:"flex" ,alignItems:"stretch"}}>
-            <SideBar handleTop={handleTop} handleFave={handleFave}/>
+            <SideBar handleTop={handleTop} handleFave={handleFave} handleManC={handleManC} />
             <div style={{ border:"1px solid #e3dcdc", width:"80%"}}>
             <ApiCall url={WebUrl.highlights} handleApiCall={handleApiCall} isFirstLoad={isFirstLoad}/>
-            <ApiCall url={props.data === ""? newsUrl:props.data} handleApiCall={handleApiCallNews} isFirstLoad={isFirstLoadNews}/>
+            <ApiCall url={newsUrl} handleApiCall={handleApiCallNews} isFirstLoad={isFirstLoadNews}/>
+             {/* <ApiCall url={props.data} handleApiCall={handleApiCallSearch} isFirstLoad={isFirstLoadSearch}/> */}
             <News news={news}/>
-            <span style={{ display: "inline-block", width: "200px" }}></span>
+            {/* <News news={search}/> */}
+            <span style={{ display: "block", width: "100px" }}></span>
             <Highlights highlights={highlights}/>
             </div>
       </div>

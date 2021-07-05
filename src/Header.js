@@ -19,11 +19,11 @@ const titleColored = titleArr.map((item,index) => {
                 </Link>
                 </span>
             </div>
-           <div className="nav-item">
+          {/*  <div className="nav-item">
                 <Link to={Webpage.headlines} className="titleLink">
                     Headlines
                 </Link>
-            </div>
+            </div> */}
             <div className="nav-item">
                 <Link to={Webpage.about} className="titleLink">
                     About

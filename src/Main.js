@@ -14,7 +14,7 @@ function Main(props) {
             <Switch>
                 {/* <Route exact path={Webpage.home} component={Headlines}/> */}
                 <Route exact path={Webpage.home} render={props=><Headlines {...props} data={queryStr}/>}/>
-                <Route exact path={Webpage.headlines} component={Headlines}/>
+                {/* <Route exact path={Webpage.headlines} component={Headlines}/> */}
                 <Route exact path={Webpage.highlights} component={FullHighlightsList}/>
                 <Route exact path={Webpage.news} component={FullNews}/>
                 <Route path={Webpage.about} component={About}/>
