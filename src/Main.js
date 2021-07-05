@@ -9,6 +9,7 @@ import FullNews from './FullNews';
 
 function Main(props) {
     const queryStr = props.queryStr;
+   // console.log("query - Main",queryStr);
     return (
         <main>
             <Switch>

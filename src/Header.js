@@ -29,12 +29,6 @@ const titleColored = titleArr.map((item,index) => {
                     About
                 </Link>
             </div>
-           {/*  <div style={{flex: "0 0 auto",justifyContent: "flex-end",height: "48px",verticalAlign: "middle", whiteSpace: "nowrap",alignItems: "center", display: "flex"}}>
-            <div  style={{flex: "1 1 auto",display: "inline-block",height: "48px", maxWidth: "720px",    color: "black", background: "rgba(128,134,139,0.2)"}}>
-            <form  style={{color: "black", background: "#f1f3f4", borderRadius:"8px"}}></form>
-            </div>
-            </div> */}
-        {/* </div> */}
         </>
     );
 }

@@ -2,8 +2,8 @@ import React from 'react';
 import WebUrl from './WebUrl';
 
 const Form = (props) => {
-
-  const [query, setQuery] = React.useState("");
+    const [query, setQuery] = React.useState("");
+  const [queryArr, setQueryArr] = React.useState(["",""]);
 
   function handleClearSearch() 
   { 
@@ -13,13 +13,20 @@ const Form = (props) => {
   
   function handleSubmit(event) { 
         event.preventDefault();
-        console.log("event" , query);
+        console.log("straight from keyboard - form" , query);
+        if (query !== ""){
         const str1 = query;
         const strAr = str1.split(' '); 
-        const newstrAr =  WebUrl.news3 + strAr.join('+');
-        console.log(newstrAr)
-        props.handleQuery(newstrAr);
-        props.handleQuery("");
+        const queryUrl =  WebUrl.news3 + strAr.join('+');
+        console.log("query url - form - ",queryUrl);
+        const queryUpdateArr = [...queryArr];
+        queryUpdateArr[0] = queryUpdateArr[1];
+        queryUpdateArr[1] = queryUrl;
+        console.log("Updated query Array - form", queryUpdateArr)
+        console.log("1 & 2 same?", queryUpdateArr[0]?.slice(queryUpdateArr[0]?.lastIndexOf('=') + 1) === queryUpdateArr[1]?.slice(queryUpdateArr[1]?.lastIndexOf('=') + 1))
+        setQueryArr(queryUpdateArr);
+        props.handleQuery(queryUpdateArr);
+        }
     }
 
 return (

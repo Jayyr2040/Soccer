@@ -7,11 +7,11 @@ import Form from './Form';
 
 function App() {
 
-  const [queryStr,setQueryStr] = useState("");
+  const [queryStr,setQueryStr] = useState([]);
   const handleQuery = (query) => {
-    setQueryStr(query);
+    setQueryStr([...query]);
   }
-
+console.log("query str - App", queryStr);
   return (
     <div>
         <div className="nav">

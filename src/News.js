@@ -3,9 +3,7 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
 const News = (props) => {
- // const Webpage1 = Webpage.news;
- // console.log(Webpage1);
- // console.log(props);
+
  window.scrollTo(0, 0)
 
   const articles = (props, counter) => {
@@ -39,7 +37,7 @@ const News = (props) => {
   return (
     <>
       <div>
-        <h2>Headlines</h2>
+        <h2>Headlines <span style={{fontWeight: "normal"}}>({((props?.url.slice(props?.url.lastIndexOf('=') + 1).split('+')).map(item=>(item.charAt(0).toUpperCase()+item.substr(1)))).join(" ")})</span></h2>
       </div>
       <div style={{ border: "1px solid #e3dcdc",borderRadius:"10px" , alignContent:"flex-start", justifyContent:"start-end", flexFlow: "column wrap", display:"flex"}}>
           <ul>

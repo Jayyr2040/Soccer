@@ -11,9 +11,9 @@ const SideBar = (props) => {
             <div  tabIndex="2" style={{paddingTop: "30px", border:"1px solid #e3dcdc", cursor:"pointer"}} onClick={props.handleFave}>
             <div className="sidebar">Favourites</div>
             </div>
-            <div  tabIndex="3" style={{paddingTop: "30px", border:"1px solid #e3dcdc", cursor:"pointer"}} onClick={props.handleManC}>
+          {/*   <div  tabIndex="3" style={{paddingTop: "30px", border:"1px solid #e3dcdc", cursor:"pointer"}} onClick={props.handleManC}>
             <div className="sidebar">ManC</div>
-            </div>
+            </div> */}
         </div>
 
 
